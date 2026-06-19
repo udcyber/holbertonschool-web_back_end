@@ -2,7 +2,10 @@
 """
 Async in Python
 ~~~
+Import wait_n into 2-measure_runtime.py
 Measure the total execution time for wait_n(n, max_delay)
+Return total_time / n
+Return a float
 """
 import time
 import asyncio
@@ -15,8 +18,8 @@ def measure_time(n: int, max_delay: int) -> float:
 
     wait_n = __import__("1-concurrent.coroutines").wait_n
 
-    gotime = time.time()
+    begin_time = time.time()
     asyncio.run(wait_n(n, max_delay))
-    endtime = time.time()
+    end_time = time.time()
 
-    return (endtime - gotime) / n
+    return (end_time - begin_time) / n
